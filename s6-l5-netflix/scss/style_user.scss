@@ -1,0 +1,72 @@
+@import "./partials/reset";
+@import "./partials/bootstrap_override";
+
+body {
+  color: #e3f4e8;
+}
+
+h3 {
+  color: #cccccc;
+}
+.logo {
+  width: 120px;
+  img {
+    width: 100%;
+  }
+}
+.user {
+  width: 40px;
+  img {
+    width: 100%;
+  }
+}
+
+main {
+  width: 80%;
+  font-size: 0.75rem;
+  @media screen and (min-width: 768px) {
+    width: 400px;
+    font-size: 0.8rem;
+  }
+  @media screen and (min-width: 992px) {
+    width: 700px;
+    font-size: 1rem;
+  }
+}
+
+h1 {
+  font-size: 5em;
+}
+
+.name,
+.ams {
+  background-color: #666666;
+}
+
+img {
+  width: 200px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 1.5em;
+  height: 1.5em;
+  border: 0.1em solid $secondary;
+  background-color: transparent;
+  top: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.form-check-input:checked::before {
+  content: "✔";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black; /* Non so perché non cambia colore */
+  font-size: 1rem;
+  font-weight: bold;
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+}

@@ -1,0 +1,128 @@
+body,
+.navBar {
+  background-color: #141414;
+}
+.icons {
+  margin-left: 0.8em;
+  margin-right: 0.8em;
+  font-size: 1.2em;
+  color: #f5f5f1;
+}
+
+.navbar-nav {
+  font-size: 90%;
+}
+
+#kids {
+  color: #f5f5f1;
+  font-size: 0.8em;
+}
+
+.footer-icon {
+  color: #838383;
+}
+
+.footer-links {
+  font-size: 0.8em;
+}
+
+.footer-links p {
+  margin-bottom: 0.3em;
+  color: #838383;
+}
+
+.footer-links a {
+  color: #838383;
+  text-decoration: none;
+}
+
+.footer-button {
+  color: #838383;
+  border-color: #838383;
+}
+
+.copyright {
+  color: #838383;
+  font-size: 0.6em;
+}
+
+.col img {
+  transition: transform 0.2s;
+  object-fit: cover;
+  height: 100%;
+}
+
+.col img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.user {
+  width: 60px;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.176);
+}
+
+/* USER */
+
+.userSettings {
+  width: 60%;
+}
+@media screen and (max-width: 1024px) {
+  .userSettings {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .userSettings {
+    width: 100%;
+  }
+}
+
+.languages {
+  width: 120px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 1.5em;
+  height: 1.5em;
+  border: 0.1em solid white;
+  background-color: transparent;
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.pencilUser {
+  width: 20%;
+  height: 20%;
+  bottom: 10px;
+  left: 10px;
+  padding: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.userBtn {
+  height: 45px;
+}
+
+/* SETTINGS */
+
+.settings {
+  width: 60%;
+}
+@media screen and (max-width: 1024px) {
+  .settings {
+    width: 90%;
+  }
+}
+
+.settingsImg {
+  width: 50px;
+}

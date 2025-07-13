@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Settings</title>
+    <link href="./assets/dist/css/style.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  </head>
+  <body>
+    <div class="container-fluid bg-dark">
+      <header class="bg-dark mx-3 mx-md mx-lg-10">
+        <nav class="navbar navbar-expand-lg d-flex justify-content-between">
+          <div class="d-flex">
+            <div class="logo me-5">
+              <img src="./assets/img/netflix_logo.png" alt="Netflix Logo" />
+            </div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item">
+                  <a class="nav-link text-secondary" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-secondary" href="#">TV Shows</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-secondary" href="#">Movies</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-secondary" href="#">Recently Added</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-secondary" href="#">My List</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <div class="d-flex px-1 align-items-center">
+              <div class="collapse collapse-horizontal" id="searchBar">
+                <input
+                  class="form-control me-2 bg-black border-0 p-1"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+              </div>
+              <p class="my-0">
+                <button
+                  class="btn text-white"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#searchBar"
+                  aria-expanded="false"
+                  aria-controls="searchBar"
+                >
+                  <i class="bi bi-search"></i>
+                </button>
+              </p>
+            </div>
+
+            <div class="px-1">
+              <a class="nav-link text-white" href="#">KIDS</a>
+            </div>
+            <div class="btn-group px-1">
+              <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-bell-fill text-white"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li class="text-center">
+                  <div class="text-white">Nessuna Notifica</div>
+                </li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button
+                class="btn dropdown-toggle d-flex align-items-center text-white p-1"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div class="user">
+                  <img src="/assets/img/avatar.png" class="d-block w-100" alt="Avatar" />
+                </div>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end px-4 py-3">
+                <li class="text-white">
+                  <a class="nav-link" href="./user.html"><i class="bi bi-person me-3"></i>Account</a>
+                </li>
+                <li class="text-white py-3">
+                  <a class="nav-link" href="#"><i class="bi bi-gear me-3"></i>Impostazioni</a>
+                </li>
+                <li class="text-white">
+                  <a class="nav-link" href="https://help.netflix.com/it" target="_blank"
+                    ><i class="bi bi-question-circle me-3"></i>Centro Assistenza</a
+                  >
+                </li>
+                <hr class="text-white" />
+                <li class="text-white">
+                  <a class="nav-link text-center" href="#">Esci</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </div>
+
+    <main class="container w-75 py-7">
+      <h1 class="text-black fw-regular">Account</h1>
+      <hr />
+      <div class="container">
+        <div class="d-flex">
+          <div class="me-5">
+            <h2 class="fs-4 text-secondary">MEMBERSHIP & BILLING</h2>
+            <button type="button" class="btn bg-body-secondary rounded-0 px-7 py-2">Cancel membership</button>
+          </div>
+          <div class="container">
+            <div class="d-flex justify-content-between">
+              <div>
+                <p class="my-1 fw-bold">student@strive.school</p>
+                <p class="my-1 text-secondary">*********</p>
+                <p class="my-1 text-secondary">Phone: 321 044 1279</p>
+              </div>
+              <div>
+                <p class="my-1"><a href="#">Change account email</a></p>
+                <p class="my-1"><a href="#">Change password</a></p>
+                <p class="my-1"><a href="#">Change phone number</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex"></div>
+        </div>
+      </div>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

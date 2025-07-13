@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Netflix</title>
+    <link href="./assets/dist/css/style.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  </head>
+  <body class="bg-dark">
+    <div class="container-fluid text-white">
+      <header class="mx-3 mx-md mx-lg-10">
+        <nav class="navbar navbar-expand-lg d-flex justify-content-between">
+          <div class="d-flex">
+            <div class="logo me-5">
+              <img src="./assets/img/netflix_logo.png" alt="Netflix Logo" />
+            </div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item">
+                  <a class="nav-link text-secondary" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-secondary active" href="#">TV Shows</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-secondary" href="#">Movies</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-secondary" href="#">Recently Added</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-secondary" href="#">My List</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <div class="d-flex px-1 align-items-center">
+              <div class="collapse collapse-horizontal" id="searchBar">
+                <input
+                  class="form-control me-2 bg-black border-0 p-1"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+              </div>
+              <p class="my-0">
+                <button
+                  class="btn text-white"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#searchBar"
+                  aria-expanded="false"
+                  aria-controls="searchBar"
+                >
+                  <i class="bi bi-search"></i>
+                </button>
+              </p>
+            </div>
+
+            <div class="px-1">
+              <a class="nav-link text-white" href="#">KIDS</a>
+            </div>
+            <div class="btn-group px-1">
+              <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-bell-fill text-white"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li class="text-center">
+                  <div class="text-white">Nessuna Notifica</div>
+                </li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button
+                class="btn dropdown-toggle d-flex align-items-center text-white p-1"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div class="user">
+                  <img src="/assets/img/avatar.png" class="d-block w-100" alt="Avatar" />
+                </div>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end px-4 py-3">
+                <li class="text-white">
+                  <a class="nav-link" href="./user.html"><i class="bi bi-person me-3"></i>Account</a>
+                </li>
+                <li class="text-white py-3">
+                  <a class="nav-link" href="./settings.html"><i class="bi bi-gear me-3"></i>Impostazioni</a>
+                </li>
+                <li class="text-white">
+                  <a class="nav-link" href="https://help.netflix.com/it" target="_blank"
+                    ><i class="bi bi-question-circle me-3"></i>Centro Assistenza</a
+                  >
+                </li>
+                <hr class="text-white" />
+                <li class="text-white">
+                  <a class="nav-link text-center" href="#">Esci</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main class="mx-3 mx-md mx-lg-10">
+        <div class="my-4 d-flex justify-content-between">
+          <div class="d-flex align-items-center gap-5">
+            <h1>TV Shows</h1>
+            <div class="dropdown">
+              <button
+                class="btn bg-black border border-1 rounded-0 dropdown-toggle text-white d-flex align-items-center gap-3"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Genres
+              </button>
+              <ul class="dropdown-menu bg-black">
+                <li><a class="dropdown-item text-white" href="#">Action</a></li>
+                <li><a class="dropdown-item text-white" href="#">Comedy</a></li>
+                <li><a class="dropdown-item text-white" href="#">Drama</a></li>
+                <li><a class="dropdown-item text-white" href="#">Crime</a></li>
+                <li><a class="dropdown-item text-white" href="#">Anime</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="sorter d-flex align-items-center">
+            <i class="bi bi-text-left px-3 py-1 border border-1 active"></i>
+            <i class="bi bi-grid-fill px-3 py-1 border border-1"></i>
+          </div>
+        </div>
+
+        <section class="trending">
+          <h2 class="mb-2 fs-3">Trending Now</h2>
+          <!--TRENDING LG. Non so se era il metodo migliore per rendere responsive il carosello senza escludere film, ma non mi è venuto in mente altro-->
+          <div id="trendinglg" class="carousel slide d-none d-lg-block">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row g-1">
+                  <div class="col-2">
+                    <img src="./assets/img/media/media0.webp" class="d-block w-100" alt="Sherlock" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media1.jpg" class="d-block w-100" alt="American Factory" />
+                  </div>
+                  <div class="col-2 d-none d-md-block">
+                    <img src="./assets/img/media/media2.webp" class="d-block w-100" alt="The Good Place" />
+                  </div>
+                  <div class="col-2 d-none d-md-block">
+                    <img src="./assets/img/media/media3.webp" class="d-block w-100" alt="Genius of the Modern World" />
+                  </div>
+                  <div class="col-2 d-none d-lg-block">
+                    <img src="./assets/img/media/media4.jpg" class="d-block w-100" alt="Cuba and the Cameraman" />
+                  </div>
+                  <div class="col-2 d-none d-lg-block">
+                    <img src="./assets/img/media/media5.webp" class="d-block w-100" alt="The China Hustle" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-2">
+                    <img src="./assets/img/media/media6.jpg" class="d-block w-100" alt="The Social Dilemma" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media7.webp" class="d-block w-100" alt="AROG" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media8.webp" class="d-block w-100" alt="Yashi Bati" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media9.jpg" class="d-block w-100" alt="Connected" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media10.jpg" class="d-block w-100" alt="The Spy" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media11.jpg" class="d-block w-100" alt="The College" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#trendinglg" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#trendinglg" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- TRENDING MD -->
+          <div id="trendingmd" class="carousel slide d-none d-md-block d-lg-none">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row g-1">
+                  <div class="col-3">
+                    <img src="./assets/img/media/media0.webp" class="d-block w-100" alt="Sherlock" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media1.jpg" class="d-block w-100" alt="American Factory" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media2.webp" class="d-block w-100" alt="The Good Place" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media3.webp" class="d-block w-100" alt="Genius of the Modern World" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-3">
+                    <img src="./assets/img/media/media4.jpg" class="d-block w-100" alt="Cuba and the Cameraman" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media5.webp" class="d-block w-100" alt="The China Hustle" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media6.jpg" class="d-block w-100" alt="The Social Dilemma" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media7.webp" class="d-block w-100" alt="AROG" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-3">
+                    <img src="./assets/img/media/media8.webp" class="d-block w-100" alt="Yashi Bati" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media9.jpg" class="d-block w-100" alt="Connected" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media10.jpg" class="d-block w-100" alt="The Spy" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media11.jpg" class="d-block w-100" alt="The College" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev d-none d-md-block d-lg-none"
+              type="button"
+              data-bs-target="#trendingmd"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next d-none d-md-block d-lg-none"
+              type="button"
+              data-bs-target="#trendingmd"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- TRENDING SM -->
+          <div id="trendingsm" class="carousel slide d-md-none">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media0.webp" class="d-block w-100" alt="Sherlock" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media1.jpg" class="d-block w-100" alt="American Factory" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media2.webp" class="d-block w-100" alt="The Good Place" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media3.webp" class="d-block w-100" alt="Genius of the Modern World" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media4.jpg" class="d-block w-100" alt="Cuba and the Cameraman" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media5.webp" class="d-block w-100" alt="The China Hustle" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media6.jpg" class="d-block w-100" alt="The Social Dilemma" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media7.webp" class="d-block w-100" alt="AROG" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media8.webp" class="d-block w-100" alt="Yashi Bati" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media9.jpg" class="d-block w-100" alt="Connected" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media10.jpg" class="d-block w-100" alt="The Spy" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media11.jpg" class="d-block w-100" alt="The College" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev d-md-none"
+              type="button"
+              data-bs-target="#trendingsm"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next d-md-none"
+              type="button"
+              data-bs-target="#trendingsm"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="again">
+          <h2 class="mb-2 fs-3 mt-4">Watch It Again</h2>
+          <!--AGAIN LG-->
+          <div id="againlg" class="carousel slide d-none d-lg-block">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row g-1">
+                  <div class="col-2">
+                    <img src="./assets/img/media/media12.jpg" class="d-block w-100" alt="Tribes of Europa" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media13.jpg" class="d-block w-100" alt="Narcos" />
+                  </div>
+                  <div class="col-2 d-none d-md-block">
+                    <img src="./assets/img/media/media14.webp" class="d-block w-100" alt="Breaking Bad" />
+                  </div>
+                  <div class="col-2 d-none d-md-block">
+                    <img src="./assets/img/media/media15.jpg" class="d-block w-100" alt="Explained" />
+                  </div>
+                  <div class="col-2 d-none d-lg-block">
+                    <img src="./assets/img/media/media16.webp" class="d-block w-100" alt="Rick & Morty" />
+                  </div>
+                  <div class="col-2 d-none d-lg-block">
+                    <img src="./assets/img/media/media17.jpg" class="d-block w-100" alt="The White Helmets" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-2">
+                    <img src="./assets/img/media/media18.jpg" class="d-block w-100" alt="Spycraft" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media19.webp" class="d-block w-100" alt="Better Call Saul" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media20.jpg" class="d-block w-100" alt="Inside Bill's Brain" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media21.webp" class="d-block w-100" alt="Vikings" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media22.webp" class="d-block w-100" alt="HIMYM" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media23.webp" class="d-block w-100" alt="Dream Big" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#againlg" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#againlg" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- AGAIN MD -->
+          <div id="againmd" class="carousel slide d-none d-md-block d-lg-none">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row g-1">
+                  <div class="col-3">
+                    <img src="./assets/img/media/media12.jpg" class="d-block w-100" alt="Tribes of Europa" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media13.jpg" class="d-block w-100" alt="Narcos" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media14.webp" class="d-block w-100" alt="Breaking Bad" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media15.jpg" class="d-block w-100" alt="Explained" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-3">
+                    <img src="./assets/img/media/media16.webp" class="d-block w-100" alt="Rick & Morty" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media17.jpg" class="d-block w-100" alt="The White Helmets" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media18.jpg" class="d-block w-100" alt="Spycraft" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media19.webp" class="d-block w-100" alt="Better Call Saul" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-3">
+                    <img src="./assets/img/media/media20.jpg" class="d-block w-100" alt="Inside Bill's Brain" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media21.webp" class="d-block w-100" alt="Vikings" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media22.webp" class="d-block w-100" alt="HIMYM" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media23.webp" class="d-block w-100" alt="Dream Big" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev d-none d-md-block d-lg-none"
+              type="button"
+              data-bs-target="#againmd"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next d-none d-md-block d-lg-none"
+              type="button"
+              data-bs-target="#againmd"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- AGAIN SM -->
+          <div id="againsm" class="carousel slide d-md-none">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media12.jpg" class="d-block w-100" alt="Tribes of Europa" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media13.jpg" class="d-block w-100" alt="Narcos" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media14.webp" class="d-block w-100" alt="Breaking Bad" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media15.jpg" class="d-block w-100" alt="Explained" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media16.webp" class="d-block w-100" alt="Rick & Morty" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media17.jpg" class="d-block w-100" alt="The White Helmets" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media18.jpg" class="d-block w-100" alt="Spycraft" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media19.webp" class="d-block w-100" alt="Better Call Saul" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media20.jpg" class="d-block w-100" alt="Inside Bill's Brain" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media21.webp" class="d-block w-100" alt="Vikings" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media22.webp" class="d-block w-100" alt="HIMYM" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media23.webp" class="d-block w-100" alt="Dream Big" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev d-md-none"
+              type="button"
+              data-bs-target="#againsm"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next d-md-none"
+              type="button"
+              data-bs-target="#againsm"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="releases">
+          <h2 class="mb-2 fs-3 mt-4">New Releases</h2>
+          <!--releases LG-->
+          <div id="releaseslg" class="carousel slide d-none d-lg-block">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row g-1">
+                  <div class="col-2">
+                    <img src="./assets/img/media/media24.jpg" class="d-block w-100" alt="Our Planet" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media25.webp" class="d-block w-100" alt="Modern Family" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media26.webp" class="d-block w-100" alt="Leyla and Mecnun" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media27.jpg" class="d-block w-100" alt="History 101" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media28.jpg" class="d-block w-100" alt="Peaky Blinders" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media29.jpg" class="d-block w-100" alt="My Octopus Teacher" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-2">
+                    <img src="./assets/img/media/media30.jpg" class="d-block w-100" alt="Magic for Humans" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media31.webp" class="d-block w-100" alt="The Most Unknown" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media32.jpg" class="d-block w-100" alt="The Last Dance" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media21.webp" class="d-block w-100" alt="Vikings" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media22.webp" class="d-block w-100" alt="HIMYM" />
+                  </div>
+                  <div class="col-2">
+                    <img src="./assets/img/media/media23.webp" class="d-block w-100" alt="Dream Big" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#releaseslg" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#releaseslg" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- releases MD -->
+          <div id="releasesmd" class="carousel slide d-none d-md-block d-lg-none">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row g-1">
+                  <div class="col-3">
+                    <img src="./assets/img/media/media24.jpg" class="d-block w-100" alt="Our Planet" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media25.webp" class="d-block w-100" alt="Modern Family" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media26.webp" class="d-block w-100" alt="Leyla and Mecnun" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media27.jpg" class="d-block w-100" alt="History 101" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-3">
+                    <img src="./assets/img/media/media28.jpg" class="d-block w-100" alt="Peaky Blinders" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media29.jpg" class="d-block w-100" alt="My Octopus Teacher" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media30.jpg" class="d-block w-100" alt="Magic for Humans" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media31.webp" class="d-block w-100" alt="The Most Unknown" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-3">
+                    <img src="./assets/img/media/media32.jpg" class="d-block w-100" alt="Inside Bill's Brain" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media21.webp" class="d-block w-100" alt="Vikings" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media22.webp" class="d-block w-100" alt="HIMYM" />
+                  </div>
+                  <div class="col-3">
+                    <img src="./assets/img/media/media23.webp" class="d-block w-100" alt="Dream Big" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev d-none d-md-block d-lg-none"
+              type="button"
+              data-bs-target="#releasesmd"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next d-none d-md-block d-lg-none"
+              type="button"
+              data-bs-target="#releasesmd"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- releases SM -->
+          <div id="releasessm" class="carousel slide d-md-none">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media24.jpg" class="d-block w-100" alt="Our Planet" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media25.webp" class="d-block w-100" alt="Modern Family" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media26.webp" class="d-block w-100" alt="Leyla and Mecnun" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media27.jpg" class="d-block w-100" alt="History 101" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media28.jpg" class="d-block w-100" alt="Peaky Blinders" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media29.jpg" class="d-block w-100" alt="My Octopus Teacher" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media30.jpg" class="d-block w-100" alt="Magic for Humans" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media31.webp" class="d-block w-100" alt="The Most Unknown" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media20.jpg" class="d-block w-100" alt="Inside Bill's Brain" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media21.webp" class="d-block w-100" alt="Vikings" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row g-1">
+                  <div class="col-6">
+                    <img src="./assets/img/media/media32.jpg" class="d-block w-100" alt="Inside Bill's Brain" />
+                  </div>
+                  <div class="col-6">
+                    <img src="./assets/img/media/media23.webp" class="d-block w-100" alt="Dream Big" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev d-md-none"
+              type="button"
+              data-bs-target="#releasessm"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next d-md-none"
+              type="button"
+              data-bs-target="#releasessm"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </section>
+      </main>
+      <footer class="pt-10">
+        <div class="container-fluid footer d-flex g-0 justify-content-between">
+          <div class="social">
+            <i class="bi bi-facebook text-secondary"></i><i class="bi bi-instagram text-secondary mx-2 mx-lg-4"></i
+            ><i class="bi bi-twitter text-secondary"></i><i class="bi bi-youtube text-secondary ms-2 ms-lg-4"></i>
+            <ul class="list-group px-0">
+              <li>
+                <a class="nav-link text-secondary py-2" href="#">Audio & Subtitles</a>
+              </li>
+              <li>
+                <a class="nav-link text-secondary py-2" href="#">Media Center</a>
+              </li>
+              <li>
+                <a class="nav-link text-secondary py-2" href="#">Privacy</a>
+              </li>
+              <li>
+                <a class="nav-link text-secondary py-2" href="#">Contact Us</a>
+              </li>
+            </ul>
+            <a class="nav-link text-secondary border border-1 border-secondary mt-4 pt-1 pb-2 px-1" href="#"
+              >Service Code</a
+            >
+            <p class="text-secondary pt-4 text-nowrap">&copy; 1997-2019 Netflix, Inc. {i-0d00fcda2fdf9c0de}</p>
+          </div>
+
+          <div>
+            <ul class="list-group px-0">
+              <li class="pt-4">
+                <a class="nav-link text-secondary py-2 pt-3" href="#">Audio Description</a>
+              </li>
+              <li>
+                <a class="nav-link text-secondary py-2" href="#">Investor Relations</a>
+              </li>
+              <li>
+                <a class="nav-link text-secondary py-2" href="#">Legal Notices</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <ul class="list-group px-0">
+              <li class="pt-4">
+                <a class="nav-link text-secondary py-2 pt-3" href="#">Help center</a>
+              </li>
+              <li>
+                <a class="nav-link text-secondary py-2" href="#">Jobs</a>
+              </li>
+              <li>
+                <a class="nav-link text-secondary py-2" href="#">Cookie Preferences</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <ul class="list-group px-0">
+              <li class="pt-4">
+                <a class="nav-link text-secondary py-2 pt-3" href="#">Gift Cards</a>
+              </li>
+              <li>
+                <a class="nav-link text-secondary py-2" href="#">Terms of Use</a>
+              </li>
+              <li>
+                <a class="nav-link text-secondary py-2" href="#">Corporate Information</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

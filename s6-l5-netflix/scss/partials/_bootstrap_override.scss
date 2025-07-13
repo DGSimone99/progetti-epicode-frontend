@@ -1,0 +1,83 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+$dark: #141414;
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import "../../bootstrap/scss/variables";
+@import "../../bootstrap/scss/variables-dark";
+
+// 4. Include any default map overrides here
+$newSpacers: (
+  6: $spacer * 3.5,
+  7: $spacer * 4,
+  8: $spacer * 4.5,
+  9: $spacer * 5,
+  10: $spacer * 6,
+) !default;
+
+$spacers: map-merge($spacers, $newSpacers);
+// 5. Include remainder of required parts
+@import "../../bootstrap/scss/maps";
+@import "../../bootstrap/scss/mixins";
+@import "../../bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+@import "../../bootstrap/scss/utilities";
+@import "../../bootstrap/scss/reboot";
+@import "../../bootstrap/scss/type";
+@import "../../bootstrap/scss/images";
+@import "../../bootstrap/scss/containers";
+@import "../../bootstrap/scss/grid";
+@import "../../bootstrap/scss/buttons";
+@import "../../bootstrap/scss/transitions";
+@import "../../bootstrap/scss/dropdown";
+@import "../../bootstrap/scss/button-group";
+@import "../../bootstrap/scss/nav";
+@import "../../bootstrap/scss/navbar";
+@import "../../bootstrap/scss/carousel";
+@import "../../bootstrap/scss/helpers";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "../../bootstrap/scss/utilities/api";
+
+// 8. Add additional custom code here
+header {
+  nav {
+    .active {
+      color: white !important;
+    }
+  }
+}
+
+.nav-link:hover {
+  color: rgb(210, 210, 210) !important;
+  transform: scale(110%);
+}
+
+.dropdown-menu {
+  box-sizing: content-box;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.dropdown-item:hover {
+  color: white !important;
+  transform: scale(105%);
+  background-color: transparent !important;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  width: 75px;
+  z-index: 3;
+}
+
+.carousel-control-next {
+  right: -60px;
+}
+.carousel-control-prev {
+  left: -60px;
+}
